@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Almera | Diyetisyen</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1b2a;
+    --ocean: #1e3a5f;
+    --cerulean: #2d6a9f;
+    --sky: #5ba4d0;
+    --mist: #b8d8ed;
+    --foam: #e8f4f9;
+    --white: #f9fbfd;
+    --gold: #c9a96e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--navy);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 24px 60px;
+    background: rgba(249,251,253,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(91,164,208,0.15);
+    animation: fadeDown 0.8s ease both;
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 300;
+    letter-spacing: 4px;
+    color: var(--navy);
+    text-transform: uppercase;
+  }
+
+  .nav-logo span { color: var(--cerulean); font-style: italic; }
+
+  nav ul { list-style: none; display: flex; gap: 40px; }
+  nav ul a {
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ocean);
+    transition: color 0.3s;
+  }
+  nav ul a:hover { color: var(--cerulean); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 120px 60px 80px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-tag {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--cerulean);
+    margin-bottom: 24px;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 6vw, 88px);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--navy);
+    margin-bottom: 32px;
+    animation: fadeUp 0.8s 0.5s ease both;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--cerulean);
+  }
+
+  .hero-desc {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--ocean);
+    max-width: 400px;
+    font-weight: 300;
+    margin-bottom: 48px;
+    animation: fadeUp 0.8s 0.7s ease both;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 36px;
+    background: var(--cerulean);
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: all 0.3s;
+    animation: fadeUp 0.8s 0.9s ease both;
+    width: fit-content;
+  }
+
+  .hero-cta:hover {
+    background: var(--ocean);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(45,106,159,0.3);
+  }
+
+  .hero-cta::after {
+    content: '→';
+    font-size: 16px;
+    transition: transform 0.3s;
+  }
+  .hero-cta:hover::after { transform: translateX(4px); }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg-shape {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--ocean) 0%, var(--cerulean) 50%, var(--sky) 100%);
+  }
+
+  .hero-bg-shape::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 30% 70%, rgba(255,255,255,0.08) 0%, transparent 60%),
+                      radial-gradient(circle at 80% 20%, rgba(255,255,255,0.06) 0%, transparent 50%);
+  }
+
+  .hero-wave-text {
+    position: absolute;
+    bottom: 60px;
+    left: 40px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 120px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.06);
+    letter-spacing: -4px;
+    line-height: 1;
+  }
+
+  .hero-stats {
+    position: absolute;
+    bottom: 60px;
+    right: 60px;
+    display: flex;
+    gap: 40px;
+  }
+
+  .stat {
+    text-align: center;
+    color: white;
+  }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 300;
+    display: block;
+  }
+  .stat-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  .hero-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    height: 320px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+    animation: pulse 4s ease-in-out infinite;
+  }
+
+  .hero-circle::before {
+    content: '';
+    position: absolute;
+    inset: 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 50%;
+  }
+
+  /* HAKKIMDA */
+  #hakkimda {
+    padding: 120px 60px;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 100px;
+    align-items: center;
+    background: var(--foam);
+  }
+
+  .about-tag {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--cerulean);
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .about-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 56px);
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--navy);
+    margin-bottom: 32px;
+  }
+
+  .about-text {
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--ocean);
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+
+  .about-visual {
+    position: relative;
+    height: 500px;
+  }
+
+  .about-card {
+    position: absolute;
+    background: white;
+    border: 1px solid var(--mist);
+    padding: 36px;
+    box-shadow: 0 20px 60px rgba(13,27,42,0.08);
+  }
+
+  .about-card-main {
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: linear-gradient(160deg, var(--ocean), var(--navy));
+    color: white;
+  }
+
+  .about-card-main .card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 8px;
+  }
+
+  .about-card-main .card-sub {
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.6;
+  }
+
+  .about-card-float {
+    bottom: -20px;
+    right: -30px;
+    width: 200px;
+    padding: 24px;
+  }
+
+  .about-card-float .big-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    color: var(--cerulean);
+    font-weight: 300;
+    display: block;
+    line-height: 1;
+  }
+
+  .about-card-float .small-text {
+    font-size: 12px;
+    color: var(--ocean);
+    letter-spacing: 1px;
+  }
+
+  /* BLOG */
+  #blog {
+    padding: 120px 60px;
+    background: var(--white);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 64px;
+  }
+
+  .section-tag {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--cerulean);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 300;
+    color: var(--navy);
+  }
+
+  .see-all {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--cerulean);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid var(--mist);
+    padding-bottom: 4px;
+    transition: all 0.3s;
+  }
+  .see-all:hover { color: var(--ocean); border-color: var(--ocean); }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 24px;
+  }
+
+  .blog-card {
+    background: var(--foam);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .blog-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 60px rgba(13,27,42,0.1);
+  }
+
+  .blog-card-img {
+    height: 220px;
+    background: linear-gradient(135deg, var(--cerulean), var(--ocean));
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .blog-card:first-child .blog-card-img { height: 300px; }
+
+  .blog-icon {
+    font-size: 64px;
+    opacity: 0.3;
+  }
+
+  .blog-cat {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(8px);
+    padding: 6px 14px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: white;
+  }
+
+  .blog-body {
+    padding: 28px;
+  }
+
+  .blog-date {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--sky);
+    margin-bottom: 12px;
+  }
+
+  .blog-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--navy);
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+
+  .blog-excerpt {
+    font-size: 13px;
+    color: var(--ocean);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* İLETİŞİM */
+  #iletisim {
+    padding: 120px 60px;
+    background: var(--navy);
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #iletisim::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(45,106,159,0.3) 0%, transparent 70%);
+  }
+
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: start;
+    position: relative;
+    z-index: 1;
+  }
+
+  .contact-left .section-tag { color: var(--sky); }
+
+  .contact-left .section-title { color: white; }
+
+  .contact-desc {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--mist);
+    font-weight: 300;
+    margin-top: 24px;
+    margin-bottom: 48px;
+  }
+
+  .contact-info-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .contact-icon {
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(91,164,208,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .contact-info-text {
+    font-size: 14px;
+    color: var(--mist);
+    font-weight: 300;
+  }
+
+  .contact-info-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--sky);
+    margin-bottom: 4px;
+  }
+
+  /* FORM */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .form-group label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--sky);
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(91,164,208,0.2);
+    padding: 14px 18px;
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    outline: none;
+    transition: border-color 0.3s;
+    appearance: none;
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: rgba(255,255,255,0.25); }
+
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    border-color: var(--sky);
+  }
+
+  .form-group textarea { resize: vertical; min-height: 120px; }
+
+  .form-group select option { background: var(--navy); }
+
+  .submit-btn {
+    padding: 18px 40px;
+    background: var(--cerulean);
+    color: white;
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .submit-btn:hover {
+    background: var(--sky);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(91,164,208,0.3);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ocean);
+    padding: 32px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--mist);
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+    50% { transform: translate(-50%, -50%) scale(1.05); opacity: 0.8; }
+  }
+
+  /* FLOATING ELEMENTS */
+  .float-dot {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    animation: floatAnim linear infinite;
+  }
+  @keyframes floatAnim {
+    0% { transform: translateY(100%) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-200px) rotate(360deg); opacity: 0; }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 20px 24px; }
+    nav ul { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { height: 300px; }
+    .hero-left { padding: 100px 24px 60px; }
+    #hakkimda, .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+    #hakkimda, #blog, #iletisim { padding: 80px 24px; }
+    .about-visual { height: 300px; }
+    .blog-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+  }
+
+  /* SCROLL REVEAL */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Al<span>mera</span></div>
+  <ul>
+    <li><a href="#hakkimda">Hakkımda</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#iletisim">İletişim</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-tag">Uzman Diyetisyen & Beslenme Danışmanı</p>
+    <h1 class="hero-title">
+      Sağlıklı<br>
+      yaşam bir<br>
+      <em>seçimdir.</em>
+    </h1>
+    <p class="hero-desc">
+      Bilimsel temelli, kişiye özel beslenme programlarıyla sağlıklı ve sürdürülebilir bir yaşam için yanınızdayım.
+    </p>
+    <a href="#iletisim" class="hero-cta">Randevu Al</a>
+  </div>
+  <div class="hero-right">
+    <div class="hero-bg-shape"></div>
+    <div class="hero-circle"></div>
+    <div class="hero-wave-text">SAĞLIK</div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">500+</span>
+        <span class="stat-label">Danışan</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">8</span>
+        <span class="stat-label">Yıl Deneyim</span>
+      </div>
+    </div>
+    <!-- Floating dots -->
+    <div class="float-dot" style="width:8px;height:8px;left:20%;bottom:-20px;animation-duration:8s;animation-delay:0s;"></div>
+    <div class="float-dot" style="width:5px;height:5px;left:50%;bottom:-20px;animation-duration:11s;animation-delay:2s;"></div>
+    <div class="float-dot" style="width:10px;height:10px;left:75%;bottom:-20px;animation-duration:9s;animation-delay:4s;"></div>
+    <div class="float-dot" style="width:6px;height:6px;left:35%;bottom:-20px;animation-duration:13s;animation-delay:1s;"></div>
+  </div>
+</section>
+
+<!-- HAKKIMDA -->
+<section id="hakkimda">
+  <div class="about-left reveal">
+    <span class="about-tag">Hakkımda</span>
+    <h2 class="about-title">Beslenme bilimini<br>hayata taşıyorum</h2>
+    <p class="about-text">
+      Merhaba, ben Diyetisyen Almera. Üniversite eğitimimin ardından sekiz yılı aşkın süredir bireylere sağlıklı beslenme alışkanlıkları kazandırmak için çalışıyorum.
+    </p>
+    <p class="about-text">
+      Her bireyin metabolizması, yaşam tarzı ve hedefleri farklıdır. Bu nedenle hiçbir danışanım için tek tip bir program oluşturmuyorum. Size özel, uygulanabilir ve sürdürülebilir bir yol haritası çiziyorum.
+    </p>
+    <p class="about-text">
+      İster kilo yönetimi, ister sporcu beslenmesi, ister özel diyet gereksinimleri olsun — birlikte çalışabiliriz.
+    </p>
+  </div>
+  <div class="about-visual reveal">
+    <div class="about-card about-card-main">
+      <div class="card-title">Almera</div>
+      <div class="card-sub">Diyetisyen & Beslenme Uzmanı</div>
+    </div>
+    <div class="about-card about-card-float">
+      <span class="big-num">%94</span>
+      <span class="small-text">danışan memnuniyeti</span>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="section-header reveal">
+    <div>
+      <span class="section-tag">Blog & Tarifler</span>
+      <h2 class="section-title">Sağlıklı ipuçları<br>& lezzetli tarifler</h2>
+    </div>
+    <a href="#" class="see-all">Tümünü Gör →</a>
+  </div>
+  <div class="blog-grid">
+    <div class="blog-card reveal">
+      <div class="blog-card-img">
+        <span class="blog-icon">🥗</span>
+        <span class="blog-cat">Beslenme</span>
+      </div>
+      <div class="blog-body">
+        <div class="blog-date">15 Şubat 2026</div>
+        <h3 class="blog-title">Metabolizmayı Hızlandıran 10 Alışkanlık</h3>
+        <p class="blog-excerpt">Günlük rutininize küçük değişiklikler ekleyerek metabolizmanızı doğal yollarla destekleyebilirsiniz. İşte bilimsel olarak kanıtlanmış yöntemler...</p>
+      </div>
+    </div>
+    <div class="blog-card reveal">
+      <div class="blog-card-img" style="background: linear-gradient(135deg, #2d6a9f, #5ba4d0);">
+        <span class="blog-icon">🫐</span>
+        <span class="blog-cat">Tarif</span>
+      </div>
+      <div class="blog-body">
+        <div class="blog-date">10 Şubat 2026</div>
+        <h3 class="blog-title">Enerji Veren Smoothie Bowl</h3>
+        <p class="blog-excerpt">Sabahları güne enerjik başlamak için harika bir tarif.</p>
+      </div>
+    </div>
+    <div class="blog-card reveal">
+      <div class="blog-card-img" style="background: linear-gradient(135deg, #1e3a5f, #2d6a9f);">
+        <span class="blog-icon">💧</span>
+        <span class="blog-cat">Sağlık</span>
+      </div>
+      <div class="blog-body">
+        <div class="blog-date">5 Şubat 2026</div>
+        <h3 class="blog-title">Yeterli Su İçmek Neden Bu Kadar Önemli?</h3>
+        <p class="blog-excerpt">Vücudunuzdaki suyun rolü ve yetersiz hidrasyon belirtileri.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- İLETİŞİM -->
+<section id="iletisim">
+  <div class="contact-inner">
+    <div class="contact-left reveal">
+      <span class="section-tag">İletişim</span>
+      <h2 class="section-title">Sağlıklı yaşama<br>ilk adımı atın</h2>
+      <p class="contact-desc">
+        Randevu almak, sorularınızı iletmek veya beslenme danışmanlığı hakkında bilgi edinmek için benimle iletişime geçin.
+      </p>
+      <div class="contact-info-item">
+        <div class="contact-icon">📍</div>
+        <div>
+          <div class="contact-info-label">Adres</div>
+          <div class="contact-info-text">Bağcılar Mahallesi, İstanbul</div>
+        </div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-icon">📞</div>
+        <div>
+          <div class="contact-info-label">Telefon</div>
+          <div class="contact-info-text">+90 (555) 123 45 67</div>
+        </div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-icon">✉️</div>
+        <div>
+          <div class="contact-info-label">E-Posta</div>
+          <div class="contact-info-text">info@almeradiyetisyen.com</div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-right reveal">
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Adınız</label>
+            <input type="text" placeholder="Adınız Soyadınız" required>
+          </div>
+          <div class="form-group">
+            <label>Telefon</label>
+            <input type="tel" placeholder="05XX XXX XX XX">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>E-Posta</label>
+          <input type="email" placeholder="email@ornek.com" required>
+        </div>
+        <div class="form-group">
+          <label>Konu</label>
+          <select>
+            <option value="">Seçiniz...</option>
+            <option>Kilo Yönetimi</option>
+            <option>Sporcu Beslenmesi</option>
+            <option>Çocuk Beslenmesi</option>
+            <option>Gebelik Beslenmesi</option>
+            <option>Online Danışmanlık</option>
+            <option>Diğer</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Mesajınız</label>
+          <textarea placeholder="Bana kendinizden ve hedeflerinizden bahsedin..."></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Gönder →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Almera</div>
+  <div>© 2026 Diyetisyen Almera. Tüm hakları saklıdır.</div>
+  <div>istanbul, türkiye</div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Form submit
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.submit-btn');
+    btn.textContent = '✓ Gönderildi!';
+    btn.style.background = '#2d9f6a';
+    setTimeout(() => {
+      btn.textContent = 'Gönder →';
+      btn.style.background = '';
+      e.target.reset();
+    }, 3000);
+  }
+</script>
+</body>
+</html>
