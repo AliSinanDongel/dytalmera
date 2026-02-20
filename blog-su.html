@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yeterli Su İçmek Neden Bu Kadar Önemli? | Almera Diyetisyen</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1b2a;
+    --ocean: #1e3a5f;
+    --cerulean: #2d6a9f;
+    --sky: #5ba4d0;
+    --mist: #b8d8ed;
+    --foam: #e8f4f9;
+    --white: #f9fbfd;
+    --gold: #c9a96e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--navy);
+    overflow-x: hidden;
+  }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 24px 60px;
+    background: rgba(249,251,253,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(91,164,208,0.15);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 300;
+    letter-spacing: 4px;
+    color: var(--navy);
+    text-transform: uppercase;
+  }
+
+  .nav-logo span { color: var(--cerulean); font-style: italic; }
+
+  nav ul { list-style: none; display: flex; gap: 40px; }
+  nav ul a {
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ocean);
+    transition: color 0.3s;
+  }
+  nav ul a:hover { color: var(--cerulean); }
+
+  .blog-hero {
+    min-height: 500px;
+    padding-top: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1e3a5f, #2d6a9f);
+    color: white;
+    text-align: center;
+  }
+
+  .blog-hero-content h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 56px;
+    font-weight: 300;
+    margin-bottom: 20px;
+    max-width: 800px;
+    line-height: 1.2;
+  }
+
+  .blog-hero-content p {
+    font-size: 16px;
+    opacity: 0.9;
+    margin-bottom: 20px;
+  }
+
+  .blog-meta {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  .blog-content {
+    max-width: 800px;
+    margin: 80px auto;
+    padding: 0 60px;
+  }
+
+  .blog-content h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--navy);
+    margin-top: 40px;
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
+
+  .blog-content p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--ocean);
+    margin-bottom: 16px;
+    font-weight: 300;
+  }
+
+  .blog-content ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
+
+  .blog-content li {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--ocean);
+    margin-bottom: 12px;
+    font-weight: 300;
+  }
+
+  .blog-content strong {
+    color: var(--cerulean);
+    font-weight: 500;
+  }
+
+  .info-box {
+    background: var(--foam);
+    padding: 30px;
+    border-left: 4px solid var(--sky);
+    margin: 40px 0;
+  }
+
+  footer {
+    background: var(--ocean);
+    padding: 32px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--mist);
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 20px 24px; }
+    nav ul { display: none; }
+    .blog-hero { padding-top: 100px; min-height: 400px; }
+    .blog-hero-content h1 { font-size: 36px; }
+    .blog-content { padding: 0 24px; margin: 60px auto; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo" style="text-decoration: none;">Al<span>mera</span></a>
+  <ul>
+    <li><a href="index.html#hakkimda">Hakkımda</a></li>
+    <li><a href="index.html#blog">Blog</a></li>
+    <li><a href="index.html#iletisim">İletişim</a></li>
+  </ul>
+</nav>
+
+<section class="blog-hero">
+  <div class="blog-hero-content">
+    <h1>Yeterli Su İçmek Neden Bu Kadar Önemli?</h1>
+    <p class="blog-meta">5 Şubat 2026 | Sağlık</p>
+  </div>
+</section>
+
+<div class="blog-content">
+  <p>
+    Su, insan vücudunun en temel bileşenidir. Yetişkinlerin %60'ı, çocukların ise %75'i sudur. Peki, günlük hayatımızda yeterli su içmenin önemi nedir? Şimdi yakından bakalım.
+  </p>
+
+  <h2>Vücutta Suyun Rolü</h2>
+  <p>
+    Su, vücutta çok sayıda kritik işlev yerine getirir:
+  </p>
+  <ul>
+    <li><strong>Sıcaklık Düzenlemesi:</strong> Ter aracılığıyla vücut sıcaklığını sabit tutar.</li>
+    <li><strong>Besin Taşınması:</strong> Mineralları ve vitaminleri hücrelerine taşır.</li>
+    <li><strong>Atık Uzaklaştırması:</strong> Böbrekler aracılığıyla atıkları kesinlikle temizler.</li>
+    <li><strong>Eklem Yağlaması:</strong> Eklem sıvısı olarak hareket kabiliyetini sağlar.</li>
+    <li><strong>Sindirim:</strong> Hücrelere oksijen ve besin ulaştırır.</li>
+    <li><strong>Beyin İşlevi:</strong> Konsantrasyon ve hafızayı destekler.</li>
+  </ul>
+
+  <h2>Yetersiz Hidrasyon Belirtileri</h2>
+  <p>
+    Yeterli su içmediğinizde vücudunuz çeşitli sinyaller verir:
+  </p>
+  <div class="info-box">
+    <ul>
+      <li><strong>Yorgunluk ve Halsizlik</strong> - Hatta egzersiz esnasında performans düşüşü</li>
+      <li><strong>Konsantrasyon Problemi</strong> - Iş ve öğrenme kapasitesi azalır</li>
+      <li><strong>Baş Ağrısı</strong> - Sık baş ağrıları çoğunlukla dehidrasyondan kaynaklanır</li>
+      <li><strong>Kuru Cilt ve Dudaklar</strong> - Cilt kuru ve parlak görülür</li>
+      <li><strong>Koyu Renkli İdrar</strong> - İdrarın rengi vücut hidrasyon düzeyini gösterir</li>
+      <li><strong>Açlık Artışı</strong> - Aslında susuzluk ile açlık karıştırılabilir</li>
+      <li><strong>Dönem Krampları</strong> - Bazı espektürtürler dehidrasyonla ağırlaşır</li>
+    </ul>
+  </div>
+
+  <h2>Günde Ne Kadar Su İçmeliyiz?</h2>
+  <p>
+    Genel tavsiye, günde yeterli su içmek için vücut ağırlığınızın (kg) %3'ü mililitre hesabıdır. Örneğin 70 kg ağırlığındaysanız yaklaşık 2,1 litre su içmelisiniz. Ancak bu değer:
+  </p>
+  <ul>
+    <li>Egzersiz yapanlarda daha yüksektir (ek 500-1000mL)</li>
+    <li>Sıcak havalarda daha fazla gerekliydi</li>
+    <li>Yaşlı kişilerde daha çok dikkat gerekir</li>
+    <li>Hamile ve emziren kadınlarda artmalıdır</li>
+  </ul>
+
+  <h2>Su İçme Alışkanlıkları</h2>
+  <p>
+    <strong>Sabah aç karnına:</strong> Uyku sırasında vücud dehidrate olur. Kahve veya çaydan önce 1-2 bardak su için.
+  </p>
+  <p>
+    <strong>Öğünlerle:</strong> Hydratasyonu dağıtmak için her öğünle su tüketin. Çok fazlası sindirimi etkileyebilir.
+  </p>
+  <p>
+    <strong>Egzersizden Önce ve Sonra:</strong> Antrenman öncesi 400-600mL, sonrası ise vücut ağırlığı başına 150% su için.
+  </p>
+  <p>
+    <strong>Akşam:</strong> Gece işemiyle uyanmamak için akşam saat 6'den sonra suyu kısıtlayın.
+  </p>
+
+  <h2>Su Dışında Sıvı Kaynakları</h2>
+  <p>
+    Suyun yanında başka sıvı kaynakları da sayılabilir:
+  </p>
+  <ul>
+    <li><strong>Meyva ve Sebzeler:</strong> Kavun, çilek, domates suyu açısından zengindir</li>
+    <li><strong>Çay ve Kahve:</strong> Kafein şok hidratasyona katkıda bulunabilir (ılımlı miktarlarda)</li>
+    <li><strong>Süt:</strong> Kalsiyum ve hidrasyonun iyi kaynağıdır</li>
+    <li><strong>Brotha ve Çorbalar:</strong> Lezzetli ve hidratasyonlı seçeneklerdir</li>
+  </ul>
+
+  <h2>Pratik İpuçları Günlük Su Tüketimi İçin</h2>
+  <ul>
+    <li>Yanında her zaman bir su şişesi taşıyın</li>
+    <li>Suyu lezzet almak için limon, yosun limonası veya kuru meyve ekleyin</li>
+    <li>Düzenli olarak su içme alarmı ayarlayın</li>
+    <li>İdrar rengini gözlemleyin - soluk sarı ideal, koyu sarı dehidrasyonun işareti</li>
+    <li>Spor yapılıyor ise daha fazla su tüketin</li>
+  </ul>
+
+  <p style="margin-top: 40px; padding-top: 40px; border-top: 1px solid var(--mist);">
+    <strong>Sonuç:</strong> Su, bedava ve sınırsız olan en iyi destektir. Sağlıklı bir yaşam biçimi, yeterli hidrasyon olmadan mümkün değildir. Bugün başlayın, daha fazla su içmeye! Henüz sorularınız varsa danışmanlık için iletişim kısmından bana ulaşabilirsiniz.
+  </p>
+</div>
+
+<footer>
+  <div class="footer-logo">Almera</div>
+  <div>© 2026 Diyetisyen Almera. Tüm hakları saklıdır.</div>
+  <div>istanbul, türkiye</div>
+</footer>
+
+</body>
+</html>
