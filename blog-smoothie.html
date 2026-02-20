@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enerji Veren Smoothie Bowl | Almera Diyetisyen</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1b2a;
+    --ocean: #1e3a5f;
+    --cerulean: #2d6a9f;
+    --sky: #5ba4d0;
+    --mist: #b8d8ed;
+    --foam: #e8f4f9;
+    --white: #f9fbfd;
+    --gold: #c9a96e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--navy);
+    overflow-x: hidden;
+  }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 24px 60px;
+    background: rgba(249,251,253,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(91,164,208,0.15);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 300;
+    letter-spacing: 4px;
+    color: var(--navy);
+    text-transform: uppercase;
+  }
+
+  .nav-logo span { color: var(--cerulean); font-style: italic; }
+
+  nav ul { list-style: none; display: flex; gap: 40px; }
+  nav ul a {
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ocean);
+    transition: color 0.3s;
+  }
+  nav ul a:hover { color: var(--cerulean); }
+
+  .blog-hero {
+    min-height: 500px;
+    padding-top: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #2d6a9f, #5ba4d0);
+    color: white;
+    text-align: center;
+  }
+
+  .blog-hero-content h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 56px;
+    font-weight: 300;
+    margin-bottom: 20px;
+    max-width: 800px;
+    line-height: 1.2;
+  }
+
+  .blog-hero-content p {
+    font-size: 16px;
+    opacity: 0.9;
+    margin-bottom: 20px;
+  }
+
+  .blog-meta {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  .blog-content {
+    max-width: 800px;
+    margin: 80px auto;
+    padding: 0 60px;
+  }
+
+  .blog-content h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--navy);
+    margin-top: 40px;
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
+
+  .blog-content p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--ocean);
+    margin-bottom: 16px;
+    font-weight: 300;
+  }
+
+  .blog-content ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
+
+  .blog-content li {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--ocean);
+    margin-bottom: 12px;
+    font-weight: 300;
+  }
+
+  .blog-content strong {
+    color: var(--cerulean);
+    font-weight: 500;
+  }
+
+  .recipe-box {
+    background: var(--foam);
+    padding: 30px;
+    border-left: 4px solid var(--sky);
+    margin: 40px 0;
+  }
+
+  footer {
+    background: var(--ocean);
+    padding: 32px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--mist);
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 20px 24px; }
+    nav ul { display: none; }
+    .blog-hero { padding-top: 100px; min-height: 400px; }
+    .blog-hero-content h1 { font-size: 36px; }
+    .blog-content { padding: 0 24px; margin: 60px auto; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo" style="text-decoration: none;">Al<span>mera</span></a>
+  <ul>
+    <li><a href="index.html#hakkimda">Hakkımda</a></li>
+    <li><a href="index.html#blog">Blog</a></li>
+    <li><a href="index.html#iletisim">İletişim</a></li>
+  </ul>
+</nav>
+
+<section class="blog-hero">
+  <div class="blog-hero-content">
+    <h1>Enerji Veren Smoothie Bowl</h1>
+    <p class="blog-meta">10 Şubat 2026 | Tarif</p>
+  </div>
+</section>
+
+<div class="blog-content">
+  <p>
+    Smoothie Bowl, sabahın en lezzetli başlangıcı! Kısıtlı zamanda hazırlanabilen, besleyici ve lezzetli bir tarif. Hem pratik hem visüel olarak güzel bir kahvaltı seçeneği.
+  </p>
+
+  <div class="recipe-box">
+    <h2 style="margin-top: 0;">İçindekiler (1 kişi için)</h2>
+    <ul>
+      <li><strong>1 adet dondurulmuş muz</strong> - krem kıvamı için</li>
+      <li><strong>½ fincan donmuş miken</strong> - renk ve antioksidanlar</li>
+      <li><strong>⅓ fincan yoğurt</strong> - probiyotikler ve krem dokusu</li>
+      <li><strong>¼ fincan süt</strong> (inek veya bitki bazlı) - konsistensi için</li>
+      <li><strong>1 yemek kaşığı yer fıstığı</strong> - protein ve "healthy fats"</li>
+      <li><strong>1 yemek kaşığı tohum karışımı</strong> (chia, keten, ayçiçeği)</li>
+      <li><strong>Granola, kokoş, çikolata için 2 yemek kaşığı seçiniz</strong> - topping</li>
+      <li><strong>Taze miken veya çilek</strong> - dekorasyon</li>
+    </ul>
+  </div>
+
+  <h2>Yapılışı</h2>
+  
+  <h2 style="font-size: 20px; color: var(--cerulean);">Adım 1: Smoothie'yi Hazırlayın</h2>
+  <p>
+    Dondurulmuş muz, miken, yoğurt, yer fıstığı ve süttü blenderdan geçirin. Çok sıvı olmayan, ama kaşıyla yiyebileceğiniz kıvamda olmalı. Aşırı kalın ise biraz daha süt ekleyin.
+  </p>
+
+  <h2 style="font-size: 20px; color: var(--cerulean);">Adım 2: Kasede Dökün</h2>
+  <p>
+    Smoothie karışımını bir kasede dökün. Hafifçe kaşıyla yüzeyini düzleştirin.
+  </p>
+
+  <h2 style="font-size: 20px; color: var(--cerulean);">Adım 3: Toppingler Ekleyin</h2>
+  <p>
+    Granola, çikolata, tohum karışımı ve taze meylikleri üzerine ekleyin. Simetrik dizilişi unutmayın - hem besin hem estetik!
+  </p>
+
+  <h2 style="font-size: 20px; color: var(--cerulean);">Adım 4: Hemen Servis Edin</h2>
+  <p>
+    Smoothie Bowl'lar en taze hali ile hemen tüketilmesi için tasarlanmıştır. Donmuş malzeme erimeden yemeniz önerilir.
+  </p>
+
+  <h2>Beslenme Bilgisi</h2>
+  <p>
+    <strong>Kalori:</strong> Yaklaşık 350-400 kalori<br>
+    <strong>Protein:</strong> 10-12g<br>
+    <strong>Lif:</strong> 6-8g<br>
+    <strong>Sağlıklı Yağlar:</strong> Yer fıstığı ve tohumlardan bol miktarda
+  </p>
+
+  <h2>İpuçları & Varyasyonlar</h2>
+  <ul>
+    <li><strong>Kolay Hazırlık:</strong> Öncesi meyvelerinizi porsiyonlar halinde dondurun.</li>
+    <li><strong>Protein Arttırın:</strong> Protein tozu veya yunani yoğurt ekleyin.</li>
+    <li><strong>Vegan Seçeneği:</strong> Yoğurt yerine kokoş yoğurdu kullanın.</li>
+    <li><strong>Renkli Varyasyon:</strong> Miken yerine açai, spirulina veya matcha deneyebilirsiniz.</li>
+  </ul>
+
+  <p style="margin-top: 40px; padding-top: 40px; border-top: 1px solid var(--mist);">
+    <strong>Afiyet olsun!</strong> Bu smoothie bowl, sabahınızı güneşli ve lezzetli kılacak mükemmel bir seçimdir. Antrenman öncesi veya hafif bir kahvaltı için ideal!
+  </p>
+</div>
+
+<footer>
+  <div class="footer-logo">Almera</div>
+  <div>© 2026 Diyetisyen Almera. Tüm hakları saklıdır.</div>
+  <div>istanbul, türkiye</div>
+</footer>
+
+</body>
+</html>
